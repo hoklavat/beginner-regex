@@ -1,0 +1,133 @@
+****REGULAR EXPRESSIONS****
+
+* Regular Expression: sequence of characters that define a search pattern. perform find/replace operations on strings.
+* Types of Characters: alphabet, digit, punctuation, whitespace, symbols
+* Website for Testing: https://regex101.com/
+
+[SYNTAX]
+* /regex/
+* Match, Group, Positions
+
+[LITERAL CHARACTERS]
+* car (adjacent characters)
+* a (single character, including words)
+* \ba\b (solo character, boundary)
+* [abc] (any character in character set)
+* [a-z], [0-9] (any character in range of characters)
+* [a-zA-z0-9] (any character in multi-range of characters)
+* [^abc], [^a-z] (any other character out of set/range, negating)
+
+[MODES]
+* /regex/modes
+* /regex/ (no mode, match only first occurence)
+* /regex/g (global, match all occurences)
+* /regex/i (case insensitive, default case sensitive)
+* /regex/s (single line, exclude new line characters)
+* /regex/m (multiline)
+
+[METACHARACTERS]
+* \ (backslash)
+   - \metacharacter (escape single character)
+* ^ (caret)
+* | (pipe)
+* . (period, any character except new line)
+* $ (dollar sign)
+* ? (question mark, 0 or 1 time)
+* * (asterisk, 0 or more time)
+* + (plus, 1 or more time)
+* ( (opening paranthesis)
+* ) (closing paranthesis)
+* [ (opening square bracket)
+* ] (closing square bracket)
+* { (opening curly bracket)
+* } (closing curly bracket)
+* \d (any decimal digit, 0-9)
+* \D (any character other than decimal digit)
+* \w (any word character, A-Z, a-z, 0-9)
+* \W (non-word character)
+* \s (any whitespace character)
+* \S (non-whitespace character)
+* \n (new line character)
+* non-printable characters
+   - \t (horizontal tab)
+   - \v (vertical tab)
+   - \r (carriage return, windows line-end \r\n, linux line-end \n)
+   - \n (line feed)
+   - \f (form feed)
+* metacharacters inside character set (use \ for escape)
+   - -
+   - ^
+   - \
+   - ]
+
+[SHORTHAND CHARACTER SETS]
+* \d ([0-9])
+* \D ([0-9], ^\d)
+* \s (\t \n \r \f \v)
+* \S (^\s)
+* \w ([a-zA-Z0-9_])
+* \W (^\w)
+
+[QUANTIFIER]
+* match repetitive instances of previous character/group/character set
+* greedy matching: matches previous elements as many times as possible. quantifiers are default greedy.
+* lazy matching: matches previous elements as few times as possible.
+* ? (0 or 1 time)
+* * (0 or more time)
+* + (1 or more time)
+* colou?r (u optional, colour, color)
+* Jan(uary)? (Jan, January)
+* oh* (o, oh, ohh, ohhh, …)
+* oh+ (oh, ohh, ohhh, …)
+* \d* (group of digits)
+* \d{3} (group of 3 digits, 123, 765, …)
+* \d{2, } (group of at least 2 digits, 12, 543, 8768, …)
+* \d{2, 5} (group of at least 2, at most 5 digits)
+* \b\d{3}\b (group of digits with boundary)
+* <.+> (html tag greedy match, until last >)
+* <.+?> (html tag lazy match, until first >)
+* <[^>]+> (match any other than <)
+
+[ANCHOR]
+* ^ (match must occur at the beginning of string or line)
+* $ (match must occur at the end of string or line)
+* ^\w+ (first word in text)
+* \w+? (last word in text)
+* \b (word boundary, match must occur between \w alphanumeric and \W non-alphanumeric)
+* \B (match must not occur between \b boundary)
+* \bcar\b (match car, not cartoon)
+* \b\w{4}\b (4 letter words)
+* \b[a-bA-B\]w{4}\b (4 letter words without digits)
+* \b[aeiou][a-z]*\b (words starting with vowels)
+* \b[^aeiou\s][a-z]*\b (words not starting with vowels)
+* \B\w+\B (leave first and last character match central portion)
+
+[GROUPS]
+* (group)
+* (im)?possible (possible, impossible)
+* (\d{3})-(\d{3})-(\d{4})-\1 (group 1 at end, \d{3}, 212-456-7896-456)
+* \b(\w+)\b\s+\1 (repeated words)
+* play(\w+)? (words started with play)
+* I like (?:toyota) and (honda) and \1. (first group is toyota not honda)
+
+[ALTERNATION]
+* gr(a|e)y (gray, grey)
+* regex\.(com|net|org) (regex.com, regex.net, regex.org)
+* (toyota(1000cc|660cc)|honda(1300cc|2000cc)|Ferrari?) (nested alternation, select first possible)
+
+[ASSERTION]
+* (?=element) (positive lookahead assertion)
+* bill(?=\spaid) (match bill if there is paid after)
+* \d+(?=\sUSD)
+* (?!element) (negative lookahead assertion)
+* bill(?=\spaid) (match bill if there is not paid after)
+* \d{3}(?!\s(USD|JPY)) (match three digit number if there is not USD or JPY after)
+* (?<=element) (positive lookbehind assertion)
+* (?<=free\s)course (match course if there is free before)
+* (?<!element) (negative lookbehind assertion)
+* (?<!chemistry\s)book (match book if there is chemistry before)
+
+[EXAMPLES]
+* \b\d{1,2}[-\/]\d{1,2}[-\/]d{4} (date, 11-3-2020, 11/3/2020)\b
+* [A-Z]{1,2}\d{1,2}[A-Z]?\s\d[A-Z]{2} (postal code, AA99 9AA)
+* (25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?) (ip address)

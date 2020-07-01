@@ -1,0 +1,154 @@
+****REGULAR EXPRESSIONS EXERCISES****
+
+Q1) What is the syntax of regex in most flavors of Regular Expressions?
+/regex/
+
+Q2) Write a regex which matches car anywhere in the test string.
+Test String: This is a car. I like my car. Cars are for transportation.
+/car/g
+
+Q3) Write regex which matches 2011
+Test String: I visited Australia in 2011.
+/2011/
+
+Q4) Write regex which matches all instances of tree, either Tree or tree
+Test String: Tree provides us oxygen. I have a tree in my garden.
+/tree/gi
+
+Q5) Write regex which matches only first occurence of the word pen.
+Test String: I have a pen. This pen is very good. Do you have a pen?
+/pen/
+
+Q6) If you write regex / ? / to match ? in the test string what will happen?
+Test String: I have a pen. This pen is very good. Do you have a pen?
+Then how to match ? in the test string?
+/\?/
+
+Q7) If you write regex /./g to match period in the test string what will happen?
+Test String: I have a pen. This pen is very good. Do you have a pen?
+first character.
+
+Q8) To match period in the test string write regex?
+Test String: I have a pen. This pen is very good. Do you have a pen?
+/\./
+
+Q9) Write a regex which only matches all occurrences of car but does not match car in the word cartoon.
+Test String: I have a car. It is a beautiful car. He is watching cartoon.
+/\bcar\b/g
+
+Q10) Write a regex which matches all spaces between words but doesn't match any character.
+Test String: This is a test string        with a tab and spaces       
+/\s/g
+
+- What will be the result of this regex /\s/
+- As global mode is off hence it will match only the first space after the word
+
+- Write a regex which doesn't match all the whitespace i.e  space or tab but matches everything else.
+- /\S/g
+
+Q11) Write a regex which matches all the digits 2018, 2017 without using numbers in regex (don't use 0123456789)
+Test String: This is year 2018. Last year was 2017. 
+/\d/g
+
+- Write a regex which matches everything leaving the numbers in test string.
+- /\D/g
+
+Q12) Write a regex to match everything in the test string, but you can not use alphabets from a to z and numbers from 0 to 9 and underscore.
+Test String: The files are written in a sequence like file11_123 file11_124 and so on
+/\w/g
+
+Q13) /.ear/g will match which words out of the list: par zar near pear deer dear clear car war ear
+near pear dear
+
+Q14) /45.67/will match which items out of the list: 4567 45.67 45*67 45+67 45-67 45$67
+45.67 45*67 45+67 45-67 45$67 
+
+Q15) dot or period matches every character but does not match newline character. How can you make it to match newline character?
+Turn on single line mode 
+
+Q16) /[ne]t/g will match which items given below. neg net nt et pet zet
+nt et
+
+Q17) Write regex which matches affect effect
+/[ae]ffect/g
+
+Q18) Write a regex which matches petal pedal
+/pe[td]al/g
+
+Q19) Write a regex which matches 121 122 123 124 125
+/12[12345]/g 
+/12[1-5]/g
+
+Q20) Write a regex which matches jeep leap
+/[jl]e[ae]p/g
+
+Q21) Write regex for the following Pairs: 
+catch hatch
+/[ch]atch/g
+
+house mouse
+/[hm]ouse/g
+
+banana panama 
+/[bp]ana[mn]a/g
+
+Q22) Write regex which matches  numbers from 101 to 199
+/1[0-9][1-9]/g 
+
+Q23) Write regex which matches the given items. 
+file_1.php file_2.php file_3.php file_4.php file_5.php
+/file_ [1-5]\.php/g
+
+Q24) Write regex which matches everything leaving numbers 0 to 9
+/[^0-9]/g
+
+Q25) Write regex which matches everything except alphabets a to z
+/[^a-z]/g
+
+Q26) See the conditions for variable names in programming languages.
+1. It may contain alphabets a to z upper lower case
+2. It may contain digits 0-9
+3. It may contain underscore
+4. It should not start with a digit
+
+Now write a regex for matching variable names.
+/[ a-zA-Z_ ]\w+/g
+
+Q27) Write a regex which matches
+flavor flavour
+/flavou?r/g
+
+color colour
+/colou?r/g
+
+book books
+/books?/g
+
+Q28) Write a regex which matches all 3 digit numbers
+/\d{3}/g
+
+Q29) Write a regex which matches all salaries which are at minimum six figures
+/\d{6,}/g
+
+Q30) Write regex which matches 145 658 258 7854 6589 but should not match 25 37 123478 45781 25254
+/\d{3,4}/g
+
+Q31) Write regex which matches catch catches patches
+/[cp]atch(es)?/g
+
+Q32) Write regex which matches actor actress
+/acto?r(ess)?/g
+
+Q33) Write regex which matches truck.html truck1.html truck2.html
+/truck\d*\.html/g
+
+Q34) Write regex which matches 1flower 2flower 33flowers
+/\d+flowers?/g
+
+Q35) Write regex which matches b be bee beee
+/be{0,}/g
+/be*/g
+
+Q36) Write regex which matches all the words in quotes in test string given below
+he has 'won' the 'match' 
+/'.+?'/
